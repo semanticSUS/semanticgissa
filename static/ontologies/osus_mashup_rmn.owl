@@ -1,0 +1,120 @@
+Prefix(:=<#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(osus:=<http://200.19.182.252/ontology#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(
+Declaration(Class(osus:Gestacao))
+Declaration(Class(osus:Mae))
+Declaration(Class(osus:Nascimento))
+Declaration(Class(osus:Parto))
+Declaration(Class(osus:Pessoa))
+Declaration(Class(osus:PessoaMorta))
+Declaration(Class(osus:RN))
+Declaration(Class(<http://www.co-ode.org/ontologies/ont.owl#PessoaMortaRestrictedA>))
+Declaration(ObjectProperty(osus:gestacao))
+Declaration(ObjectProperty(osus:infoNasc))
+Declaration(ObjectProperty(osus:parto))
+Declaration(ObjectProperty(osus:temMae))
+Declaration(DataProperty(osus:apgarPrimeiroMinuto))
+Declaration(DataProperty(osus:apgarQuintoMinuto))
+Declaration(DataProperty(osus:diasVividos))
+Declaration(DataProperty(osus:numDecNascVivo))
+Declaration(DataProperty(osus:pesoAoNascer))
+Declaration(DataProperty(osus:qtdNascMortos))
+Declaration(DataProperty(osus:sexo))
+Declaration(DataProperty(osus:tempoDeGestacao))
+############################
+#   Object Properties
+############################
+
+# Object Property: osus:gestacao (osus:gestacao)
+
+ObjectPropertyDomain(osus:gestacao osus:Parto)
+ObjectPropertyRange(osus:gestacao osus:Gestacao)
+
+# Object Property: osus:infoNasc (osus:infoNasc)
+
+ObjectPropertyDomain(osus:infoNasc osus:RN)
+ObjectPropertyRange(osus:infoNasc osus:Nascimento)
+
+# Object Property: osus:parto (osus:parto)
+
+ObjectPropertyDomain(osus:parto osus:Nascimento)
+ObjectPropertyRange(osus:parto osus:Parto)
+
+# Object Property: osus:temMae (osus:temMae)
+
+ObjectPropertyDomain(osus:temMae ObjectUnionOf(osus:RN <http://www.co-ode.org/ontologies/ont.owl#PessoaMortaRestrictedA>))
+ObjectPropertyRange(osus:temMae osus:Mae)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: osus:apgarPrimeiroMinuto (osus:apgarPrimeiroMinuto)
+
+DataPropertyDomain(osus:apgarPrimeiroMinuto osus:Nascimento)
+
+# Data Property: osus:apgarQuintoMinuto (osus:apgarQuintoMinuto)
+
+DataPropertyDomain(osus:apgarQuintoMinuto osus:Nascimento)
+
+# Data Property: osus:diasVividos (osus:diasVividos)
+
+DataPropertyDomain(osus:diasVividos osus:PessoaMorta)
+
+# Data Property: osus:numDecNascVivo (osus:numDecNascVivo)
+
+DataPropertyDomain(osus:numDecNascVivo ObjectUnionOf(osus:RN <http://www.co-ode.org/ontologies/ont.owl#PessoaMortaRestrictedA>))
+
+# Data Property: osus:pesoAoNascer (osus:pesoAoNascer)
+
+DataPropertyDomain(osus:pesoAoNascer osus:Nascimento)
+
+# Data Property: osus:qtdNascMortos (osus:qtdNascMortos)
+
+DataPropertyDomain(osus:qtdNascMortos osus:Mae)
+
+# Data Property: osus:sexo (osus:sexo)
+
+DataPropertyDomain(osus:sexo ObjectUnionOf(osus:RN <http://www.co-ode.org/ontologies/ont.owl#PessoaMortaRestrictedA>))
+DataPropertyRange(osus:sexo xsd:string)
+
+# Data Property: osus:tempoDeGestacao (osus:tempoDeGestacao)
+
+DataPropertyDomain(osus:tempoDeGestacao osus:Gestacao)
+
+# Data Property: owl:topDataProperty (owl:topDataProperty)
+
+SubDataPropertyOf(owl:topDataProperty owl:topDataProperty)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: osus:Mae (osus:Mae)
+
+SubClassOf(osus:Mae osus:Pessoa)
+
+# Class: osus:PessoaMorta (osus:PessoaMorta)
+
+SubClassOf(osus:PessoaMorta osus:Pessoa)
+
+# Class: osus:RN (osus:RN)
+
+SubClassOf(osus:RN osus:Pessoa)
+
+# Class: <http://www.co-ode.org/ontologies/ont.owl#PessoaMortaRestrictedA> (<http://www.co-ode.org/ontologies/ont.owl#PessoaMortaRestrictedA>)
+
+EquivalentClasses(<http://www.co-ode.org/ontologies/ont.owl#PessoaMortaRestrictedA> ObjectIntersectionOf(osus:PessoaMorta DataSomeValuesFrom(osus:diasVividos DatatypeRestriction(xsd:integer xsd:maxExclusive "28"^^xsd:integer))))
+
+
+)

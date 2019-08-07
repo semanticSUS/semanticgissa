@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Simple Sidebar - Start Bootstrap Template</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/custom.css">
+
+  <!-- Custom styles for this template -->
+  <link href="css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">SemanticGISSA</div>
+      <div class="list-group list-group-flush">
+        <a class="list-group-item list-group-item-action bg-light" href="index.html">Inicio</a>
+        <a class="list-group-item list-group-item-action bg-light " href="visao_semantica.html">Visão Semântica</a>
+        <a class="list-group-item list-group-item-action bg-light" href="consulta_facetada.html">Consulta Facetada</a>
+        <a class="list-group-item list-group-item-action bg-light" href="consulta_cns.html">Consulta CNS</a>
+        <a class="list-group-item list-group-item-action bg-light" href="consulta_sparql.html">Consulta SPARQL</a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <button class="btn btn-primary" id="menu-toggle"><span class="glyphicon glyphicon-th">Menu</span></button>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+
+      <div class="container-fluid">
+          <div class="jumbotron mt-3">
+            <h1>SemanticGISSA</h1>
+            <p class="lead">Um Portal Semântico baseada em Ontologias e Dados Interligados para Acesso, Integração e Visualização de Dados do SUS</p>
+          </div>
+          <div id="sobre_semanticsus">
+        <p class="sectionOfText">1. Sobre o SemanticGISSA </p>
+        <div class="textForRead">
+            O <i>SemanticGISSA</i>, um portal semântico para acesso, analise e visualização de grande quantidade de dados do Sistema Único de Saúde (SUS).
+            O Portal SemanticGISSA é baseado em um enfoque que combina ontologias e Dados Interligados para enfrentar os desafios no desenvolvimento de aplicações onde existe a necessidade de integrar fontes de dados heterogêneas.
+            O SemanticGISSA tem como principal objetivo oferecer uma camada ontológica, conectada semanticamente aos dados, e que permita o acesso integrado aos dados.
+            A plataforma disponibiliza também o serviço de integração semântica baseado na abordagem <i>pay-as-you-go</i>, o que garante flexibilidade e extensibilidade suficientes para que novas fontes de dados possam ser adicionadas ao portal.
+        </div>
+            <figure class="text-center">
+              <img class="mx-auto d-block figure-img img-fluid rounded z-depth-1" src="img/vs.png">
+              <figcaption class="figure-caption"><b><i>Figura 1: Representação da camada semântica</i></b></figcaption>
+            </figure>
+    </div>
+        <br>
+
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
+</body>
+
+</html>
