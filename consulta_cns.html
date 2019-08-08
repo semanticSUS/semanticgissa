@@ -49,7 +49,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-              <a class="nav-link" href="sobre.html">Sobre <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="index.html">Sobre <span class="sr-only">(current)</span></a>
             </li>
           </ul>
         </div>
@@ -58,8 +58,12 @@
 
 
       <div class="container-fluid">
-          <div class="jumbotron mt-3">
-           ...
+        <br/>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <button onclick="myFunction()" class="btn btn-outline-secondary" type="button">Consulta por CNS</button>
+            </div>
+            <input id="inputcns" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
           </div>
         </div>
     </div>
@@ -71,6 +75,27 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script type="text/javascript">
+    function myFunction(){
+      var cns = $('#inputcns').val();
+      var query = "SELECT * FROM <http://200.19.182.252/gissa/mashupGissa> WHERE {?pessoa <http://200.19.182.252/ontology#cns> \"" + cns + "\"} ";
+      console.log (query)
+      var urlsparql = "http://200.19.182.252:8080/rdf4j-workbench/repositories/007/query?action=exec&queryLn=SPARQL&query=" + encodeURI(query).replace(/:/g,"%3A").replace(/\//g,"%2F").replace(/#/g,"%23") + "&limit_query=100&infer=true&";
+      console.log(urlsparql)
+
+      var win = window.open(urlsparql, '_blank');
+
+      if (win) {
+          //Browser has allowed it to be opened
+          win.focus();
+      } else {
+          //Browser has blocked it
+          alert('Please allow popups for this website');
+      }
+    }
+
+  </script>
 
   <!-- Menu Toggle Script -->
   <script>
